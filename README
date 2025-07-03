@@ -1,0 +1,12 @@
+RF Filter Calculator
+-uses complex numbers
+- # of frequencys 2 low and high -> automatically calculates the medium 
+https://en.wikipedia.org/wiki/Chebyshev_filter#Type_I_Chebyshev_filters_(Chebyshev_filters)
+
+
+Version	Doctype Declaration
+HTML 4.01	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+XHTML 1.1	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+HTML5	<!DOCTYPE html>
+
+
