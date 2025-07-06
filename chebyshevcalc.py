@@ -259,6 +259,15 @@ def main():
     poles2, zeros2 = cheby2.get_poles_zeros()
     print(f"Type II - Number of poles: {len(poles2)}, Number of zeros: {len(zeros2)}")
 
+    # Create filter designer
+    cheby = ChebyshevLowpass('type1')
+
+    # Design the filter
+    b, a = cheby.design_filter(order=5, cutoff_freq=1000, ripple_db=0.5, sample_rate=8000)
+
+    # Analyze and visualize
+    cheby.plot_response(sample_rate=8000)
+    cheby.plot_pole_zero()
 
 if __name__ == "__main__":
     main()
