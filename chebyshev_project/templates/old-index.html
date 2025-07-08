@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chebyshev Filter Calculator</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1>Chebyshev Lowpass Filter</h1>
+  <form id="filter-form">
+    <label>Order: <input type="number" name="order" value="4"></label><br>
+    <label>Ripple (dB): <input type="number" name="rp" value="1"></label><br>
+    <label>Cutoff Frequency (0-1): <input type="number" step="0.01" name="wn" value="0.5"></label><br>
+    <button type="submit">Compute Filter</button>
+  </form>
+
+  <div id="plot"></div>
+
+  <script>
+    document.getElementById('filter-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const body = JSON.stringify(Object.fromEntries(formData.entries()));
+
+      const res = await fetch('/compute', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body
+      });
+      const data = await res.json();
+
+      Plotly.newPlot('plot', [{
+        x: data.freq,
+        y: data.gain,
+        type: 'scatter',
+        name: 'Gain (dB)'
+      }], {
+        title: 'Frequency Response',
+        xaxis: { title: 'Normalized Frequency' },
+        yaxis: { title: 'Gain (dB)' }
+      });
+    });
+  </script>
+</body>
+</html>

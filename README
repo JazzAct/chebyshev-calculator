@@ -15,3 +15,9 @@ Streamlit	Create web-based UI directly from Python
 Matplotlib	Plot frequency response + pole-zero
 GitHub + Streamlit Cloud	Deploy your app online for free
 Flask or FastAPI (optional)	Backend API if integrating with a custom frontend
+
+
+make sure the local server has
+
+pip install flask scipy numpy
+pip install streamlit
